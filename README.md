@@ -38,11 +38,10 @@ npm start
 4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser
 
 ## 🧰 Technologies Used
-- **React.js** (18.x) - Frontend framework
+- **React.js** - Frontend framework
 - **React Hooks** - useState, useEffect for state management
 - **CSS3** - Custom styling with gradients and animations
 - **localStorage API** - Data persistence
-- **Create React App** - Project setup and build tools
 
 ## 🔗 Live Demo
 https://task-tracker-ruddy-one.vercel.app/
