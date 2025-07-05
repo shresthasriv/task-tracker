@@ -2,6 +2,49 @@
    PERSONAL TASK TRACKER - ALL STYLES
    =================================== */
 
+/* ============ CSS VARIABLES (THEMES) ============ */
+:root {
+  /* Light Theme Variables */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --border-color: #e2e8f0;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --accent-primary: #3b82f6;
+  --accent-hover: #2563eb;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --high-priority: #ef4444;
+  --medium-priority: #f59e0b;
+  --low-priority: #10b981;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme Variables */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: #475569;
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --shadow-medium: rgba(0, 0, 0, 0.4);
+  --accent-primary: #60a5fa;
+  --accent-hover: #3b82f6;
+  --success-color: #34d399;
+  --warning-color: #fbbf24;
+  --danger-color: #f87171;
+  --high-priority: #f87171;
+  --medium-priority: #fbbf24;
+  --low-priority: #34d399;
+}
+
 /* ============ KEYFRAME ANIMATIONS ============ */
 @keyframes fadeInUp {
   from {
@@ -122,7 +165,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f9fa;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html {
@@ -250,20 +295,22 @@ input, textarea, select {
 /* MAIN APP LAYOUT */
 .app {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--bg-primary);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  transition: background 0.3s ease;
 }
 
 .app-header {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  transition: all 0.3s ease;
 }
 
 .header-content {
@@ -276,23 +323,25 @@ input, textarea, select {
 }
 
 .app-header h1 {
-  color: white;
+  color: var(--text-primary);
   margin: 0;
   font-size: 1.8rem;
   font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .user-info {
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: white;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .logout-btn {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
@@ -301,8 +350,36 @@ input, textarea, select {
 }
 
 .logout-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--border-color);
   transform: translateY(-1px);
+}
+
+/* THEME TOGGLE BUTTON */
+.theme-toggle {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  background: var(--border-color);
+  transform: translateY(-1px) scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: translateY(0) scale(0.95);
 }
 
 .app-main {
@@ -318,26 +395,29 @@ input, textarea, select {
 }
 
 .tasks-section {
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px var(--shadow-medium);
+  transition: all 0.3s ease;
 }
 
 /*FORM COMPONENTS */
 .task-form-container {
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px var(--shadow-medium);
   margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
 .task-form h3 {
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
   font-size: 1.25rem;
   font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .form-group {
@@ -348,9 +428,10 @@ input, textarea, select {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: var(--text-primary);
   font-weight: 500;
   font-size: 0.95rem;
+  transition: color 0.3s ease;
 }
 
 .form-group input,
@@ -358,7 +439,7 @@ input, textarea, select {
 .form-group select {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 2px solid #e1e5e9;
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
@@ -366,14 +447,16 @@ input, textarea, select {
   box-sizing: border-box;
   resize: vertical;
   animation: slideInLeft 0.5s ease-out;
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(var(--accent-primary), 0.1);
   transform: scale(1.02);
 }
 
@@ -386,7 +469,7 @@ input, textarea, select {
 
 .form-group select {
   cursor: pointer;
-  background: white;
+  background: var(--bg-primary);
 }
 
 .form-group select option {
@@ -408,7 +491,7 @@ input, textarea, select {
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--accent-primary);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -420,14 +503,15 @@ input, textarea, select {
 }
 
 .submit-btn:hover {
+  background: var(--accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 16px var(--shadow-medium);
 }
 
 .cancel-btn {
-  background: #f8f9fa;
-  color: #6c757d;
-  border: 2px solid #e1e5e9;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 2px solid var(--border-color);
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-size: 1rem;
@@ -450,7 +534,7 @@ input, textarea, select {
 .filter-tabs {
   display: flex;
   gap: 0.5rem;
-  border-bottom: 2px solid #f1f3f4;
+  border-bottom: 2px solid var(--border-color);
   padding-bottom: 0;
 }
 
@@ -465,18 +549,18 @@ input, textarea, select {
   gap: 0.5rem;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #6c757d;
+  color: var(--text-secondary);
   transition: all 0.2s ease;
   position: relative;
 }
 
 .filter-tab:hover {
-  background: #f8f9fa;
-  color: #495057;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
 }
 
 .filter-tab.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--accent-primary);
   color: white;
   font-weight: 600;
 }
@@ -488,7 +572,7 @@ input, textarea, select {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--accent-primary);
 }
 
 .filter-icon {
@@ -508,8 +592,8 @@ input, textarea, select {
 }
 
 .filter-tab:not(.active) .filter-count {
-  background: #e9ecef;
-  color: #6c757d;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
 }
 
 /* TASK LIST */
@@ -521,7 +605,8 @@ input, textarea, select {
 .empty-state {
   text-align: center;
   padding: 3rem 1rem;
-  color: #6c757d;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
 .empty-icon {
@@ -534,19 +619,21 @@ input, textarea, select {
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #495057;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .empty-state p {
   margin: 0;
   font-size: 1rem;
-  color: #6c757d;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
 /* ============ TASK ITEM ============ */
 .task-item {
-  background: #fff;
-  border: 2px solid #f1f3f4;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
   border-radius: 12px;
   padding: 1.25rem;
   margin-bottom: 1rem;
@@ -560,8 +647,8 @@ input, textarea, select {
 }
 
 .task-item:hover {
-  border-color: #e1e5e9;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--text-muted);
+  box-shadow: 0 8px 25px var(--shadow-medium);
   transform: translateY(-3px) scale(1.02);
 }
 
@@ -633,20 +720,22 @@ input, textarea, select {
   margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   line-height: 1.4;
+  transition: color 0.3s ease;
 }
 
 .task-title.completed-text {
   text-decoration: line-through;
-  color: #6c757d;
+  color: var(--text-muted);
 }
 
 .task-description {
   margin: 0;
-  color: #6c757d;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.5;
+  transition: color 0.3s ease;
 }
 
 .task-description.completed-text {
@@ -744,30 +833,34 @@ input, textarea, select {
 }
 
 .delete-modal {
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 1.5rem;
   max-width: 400px;
   width: 100%;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 .delete-modal h3 {
   margin: 0 0 1rem 0;
-  color: #333;
+  color: var(--text-primary);
   font-size: 1.25rem;
+  transition: color 0.3s ease;
 }
 
 .delete-modal p {
   margin: 0 0 0.5rem 0;
-  color: #6c757d;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
 .task-preview {
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   font-style: italic;
   margin-bottom: 1.5rem !important;
+  transition: color 0.3s ease;
 }
 
 .modal-actions {
@@ -777,7 +870,7 @@ input, textarea, select {
 }
 
 .confirm-delete-btn {
-  background: #dc3545;
+  background: var(--danger-color);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -793,9 +886,9 @@ input, textarea, select {
 }
 
 .cancel-delete-btn {
-  background: #f8f9fa;
-  color: #6c757d;
-  border: 2px solid #e1e5e9;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 2px solid var(--border-color);
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 500;
@@ -804,7 +897,7 @@ input, textarea, select {
 }
 
 .cancel-delete-btn:hover {
-  background: #e9ecef;
+  background: var(--border-color);
   transform: translateY(-1px);
 }
 

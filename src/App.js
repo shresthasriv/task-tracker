@@ -13,6 +13,13 @@ function App() {
   const [filter, setFilter] = useState('all');
   const [editingTask, setEditingTask] = useState(null);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('taskTrackerTheme') || 'light';
+    setTheme(savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }, []);
 
   useEffect(() => {
     const savedUser = getUser();
@@ -25,7 +32,6 @@ function App() {
     // If no tasks exist, load sample data for demonstration
     if (savedTasks.length === 0) {
       setTasks(sampleTasks);
-      // Save sample tasks to localStorage so they persist
       saveTasks(sampleTasks);
     } else {
       setTasks(savedTasks);
@@ -39,6 +45,13 @@ function App() {
       saveTasks(tasks);
     }
   }, [tasks, isInitialized]);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('taskTrackerTheme', newTheme);
+  };
 
   const handleLogin = (username) => {
     setUser(username);
@@ -108,6 +121,13 @@ function App() {
           <h1>📋 Personal Task Tracker</h1>
           <div className="user-info">
             <span>Welcome, {user}!</span>
+            <button 
+              onClick={toggleTheme} 
+              className="theme-toggle"
+              title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            >
+              {theme === 'light' ? '🌙' : '☀️'}
+            </button>
             <button onClick={handleLogout} className="logout-btn">
               Logout
             </button>
