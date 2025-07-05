@@ -384,6 +384,11 @@ input, textarea, select {
   margin-bottom: 1.25rem;
 }
 
+.form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
 .form-group select {
   cursor: pointer;
   background: white;
@@ -804,6 +809,10 @@ input, textarea, select {
   flex-direction: column;
   gap: 0.25rem;
 }
+
+.task-dates {
+    gap: 0.5rem;
+  }
 
 .due-date {
   font-size: 0.85rem;
