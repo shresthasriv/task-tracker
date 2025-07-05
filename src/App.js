@@ -4,6 +4,7 @@ import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 import TaskFilter from './components/TaskFilter';
 import { getUser, removeUser, getTasks, saveTasks } from './utils/localStorage';
+import { sampleTasks } from './utils/sampleData';
 import './styles/App.css';
 
 function App() {
@@ -20,7 +21,16 @@ function App() {
     }
     
     const savedTasks = getTasks();
-    setTasks(savedTasks);
+    
+    // If no tasks exist, load sample data for demonstration
+    if (savedTasks.length === 0) {
+      setTasks(sampleTasks);
+      // Save sample tasks to localStorage so they persist
+      saveTasks(sampleTasks);
+    } else {
+      setTasks(savedTasks);
+    }
+    
     setIsInitialized(true);
   }, []);
 
