@@ -45,9 +45,13 @@ npm start
 - **Create React App** - Project setup and build tools
 
 ## 🔗 Live Demo
-[Link to deployed application will be added here]
+https://task-tracker-ruddy-one.vercel.app/
 
 ## 🖼 Screenshots
+![image](https://github.com/user-attachments/assets/85df2d87-b7e2-4183-8e7e-c86e785ea837)
+![image](https://github.com/user-attachments/assets/db8a0cfd-5d3e-4750-bfd3-6d24718cf08b)
+![image](https://github.com/user-attachments/assets/c32ff951-e292-4485-8a06-11e5b7a09db1)
+
 
 
 ## 📁 Project Structure
