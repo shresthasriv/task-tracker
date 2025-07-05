@@ -25,7 +25,7 @@ A modern, responsive personal task management application built with React. This
 ## 🛠 Setup Instructions
 1. Clone the repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/shresthasriv/task-tracker.git
 cd task-tracker
 ```
 
@@ -58,7 +58,7 @@ The application is fully responsive and works seamlessly on:
 [Link to deployed application will be added here]
 
 ## 🖼 Screenshots
-[Screenshots will be added after deployment]
+
 
 ## 📁 Project Structure
 ```
@@ -76,57 +76,9 @@ task-tracker/
 │   │   └── localStorage.js   # localStorage utility functions
 │   ├── styles/
 │   │   ├── App.css          # Main app styles
-│   │   ├── Login.css        # Login component styles
-│   │   ├── TaskForm.css     # Task form styles
-│   │   ├── TaskItem.css     # Task item styles
-│   │   ├── TaskList.css     # Task list styles
-│   │   └── TaskFilter.css   # Filter component styles
 │   ├── App.js               # Main application component
 │   ├── index.js             # App entry point
 │   └── index.css            # Global styles
 ├── README.md
 └── package.json
 ```
-
-## 🧪 Usage Examples
-
-### Adding a Task
-1. Enter a task title (required)
-2. Optionally add a description
-3. Click "Add Task" to save
-
-### Editing a Task
-1. Click the edit (✏️) button on any task
-2. Modify the title or description
-3. Click "Update Task" to save changes
-
-### Filtering Tasks
-- Click "All" to see all tasks
-- Click "Pending" to see incomplete tasks
-- Click "Completed" to see finished tasks
-
-## 🎯 Key Features Implemented
-- ✅ React functional components with hooks
-- ✅ Responsive design (mobile + desktop)
-- ✅ Clean, readable code with proper component structure
-- ✅ localStorage data persistence
-- ✅ Task CRUD operations (Create, Read, Update, Delete)
-- ✅ Task filtering and status management
-- ✅ Modern UI with CSS styling
-- ✅ Accessibility considerations
-- ✅ Error handling and validation
-
-## 🚀 Available Scripts
-
-### `npm start`
-Runs the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm run build`
-Builds the app for production to the `build` folder.
-
-### `npm test`
-Launches the test runner in interactive watch mode.
-
----
-
-Built with ❤️ using React.js
