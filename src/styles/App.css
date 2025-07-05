@@ -22,6 +22,10 @@
   --high-priority: #ef4444;
   --medium-priority: #f59e0b;
   --low-priority: #10b981;
+  --status-completed-bg: #d4edda;
+  --status-completed-text: #155724;
+  --status-pending-bg: #fff3cd;
+  --status-pending-text: #856404;
 }
 
 [data-theme="dark"] {
@@ -43,6 +47,10 @@
   --high-priority: #f87171;
   --medium-priority: #fbbf24;
   --low-priority: #34d399;
+  --status-completed-bg: rgba(52, 211, 153, 0.2);
+  --status-completed-text: #34d399;
+  --status-pending-bg: rgba(251, 191, 36, 0.2);
+  --status-pending-text: #fbbf24;
 }
 
 /* ============ KEYFRAME ANIMATIONS ============ */
@@ -653,8 +661,8 @@ input, textarea, select {
 }
 
 .task-item.completed {
-  background: #f8f9fa;
-  border-color: #28a745;
+  background: var(--bg-tertiary);
+  border-color: var(--success-color);
   animation: fadeInUp 0.5s ease-out, pulse 0.6s ease-in-out;
 }
 
@@ -692,16 +700,16 @@ input, textarea, select {
 .checkmark {
   width: 20px;
   height: 20px;
-  background: #fff;
-  border: 2px solid #ced4da;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
   border-radius: 4px;
   position: relative;
   transition: all 0.2s ease;
 }
 
 .task-checkbox input[type="checkbox"]:checked ~ .checkbox-label .checkmark {
-  background: #28a745;
-  border-color: #28a745;
+  background: var(--success-color);
+  border-color: var(--success-color);
 }
 
 .task-checkbox input[type="checkbox"]:checked ~ .checkbox-label .checkmark::after {
@@ -740,7 +748,7 @@ input, textarea, select {
 
 .task-description.completed-text {
   text-decoration: line-through;
-  color: #adb5bd;
+  color: var(--text-muted);
 }
 
 .task-meta {
@@ -753,7 +761,8 @@ input, textarea, select {
 
 .task-date {
   font-size: 0.85rem;
-  color: #6c757d;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
 .task-status {
@@ -764,13 +773,15 @@ input, textarea, select {
 }
 
 .status-completed {
-  background: #d4edda;
-  color: #155724;
+  background: var(--status-completed-bg);
+  color: var(--status-completed-text);
+  transition: all 0.3s ease;
 }
 
 .status-pending {
-  background: #fff3cd;
-  color: #856404;
+  background: var(--status-pending-bg);
+  color: var(--status-pending-text);
+  transition: all 0.3s ease;
 }
 
 .task-actions {
@@ -778,7 +789,7 @@ input, textarea, select {
   gap: 0.5rem;
   flex-shrink: 0;
   margin-left: 1rem;
-  isolation: isolate; /* Prevents animation interference */
+  isolation: isolate; 
 }
 
 .edit-btn,

@@ -10,10 +10,6 @@ A modern, responsive personal task management application built with React. This
   - ✏️ Edit existing tasks inline
   - 🗑️ Delete tasks with confirmation modal
   - ☑️ Toggle task completion status
-- **Task Display**: 
-  - 📅 Shows creation date and time for each task
-  - 🎨 Visual distinction between completed and pending tasks
-  - 📱 Responsive design for mobile and desktop
 - **Task Filtering**: 
   - 📋 View All tasks
   - ⏳ Filter by Pending tasks
@@ -47,12 +43,6 @@ npm start
 - **CSS3** - Custom styling with gradients and animations
 - **localStorage API** - Data persistence
 - **Create React App** - Project setup and build tools
-
-## 📱 Responsive Design
-The application is fully responsive and works seamlessly on:
-- 💻 Desktop (1200px+)
-- 📱 Tablet (768px - 1199px)
-- 📱 Mobile (320px - 767px)
 
 ## 🔗 Live Demo
 [Link to deployed application will be added here]
